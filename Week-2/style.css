@@ -1,0 +1,67 @@
+.container {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+h1 {
+  padding-top: 200px;
+}
+.red {
+  background: red;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 500ms linear;
+}
+.yellow {
+  background: yellow;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 500ms linear;
+}
+.blue {
+  background: blue;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transition: 500ms linear;
+}
+.green {
+  background: green;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transition: 500ms linear;
+}
+.container:hover .yellow {
+  position: absolute;
+  right: -50%;
+  transform: rotate(-90deg);
+}
+.container:hover .red {
+  position: absolute;
+  left: -50%;
+  transform: rotate(90deg);
+}
+.container:hover .blue {
+  position: absolute;
+  left: -50%;
+  transform: rotate(-90deg);
+}
+.container:hover .green {
+  position: absolute;
+  right: -50%;
+  transform: rotate(90deg);
+}
