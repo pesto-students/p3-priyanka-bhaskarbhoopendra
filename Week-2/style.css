@@ -1,35 +1,92 @@
 html,
 body {
   margin: 0;
-  height: 100%;
+  padding: 0;
+  background-color: black;
+  color: white;
 }
 .heading{
     text-align: center;
+    font-size: 40px;
+    padding-top: 50px;
+    color: #ED4C67;
 }
 
 .content{
     display: flex;
-    overflow: hidden;
-    height: 600px;
+    /* overflow: hidden; */
+    
+  }
+.imagefigure{
+  height: 425px;
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .left-container {
     flex: 1 1 0;
+    margin:0 25px;
  }
 
  .right-container {
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
+    margin: 0 25px;
+}
+.rightbetween h1{
+  text-align: left;
+  color: #ED4C67;
+  letter-spacing: 1px;
+  font-size: 18px;
 }
 
-form {
-    max-width: 300px;
+
+.rightbottom h1{
+  text-align: left;
+  color: #ED4C67;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.rightbottom p{
+  letter-spacing: 1px;
+  text-align: left;
+  
+}
+
+.leftpannel{
+  text-align: left;
+  padding: 5px;
+  letter-spacing: 1px;
+  /* background-color: red; */
+}
+
+.left-container{
+  letter-spacing: 1px;
+}
+
+.formsection{
+  padding: 5px;
+  background-color: black;
+}
+
+ form {
     margin: 10px auto;
     padding: 10px 20px;
-    background: #f4f7f8;
+    width: 500px;
+    /* background: #f4f7f8;
+     */
+     /* background-color: black;
+      */
+      background-color: #B53471;
     border-radius: 8px;
-  }
+  } 
+
+
   
   h1 {
     margin: 0 0 30px 0;
@@ -38,30 +95,31 @@ form {
   
   input[type="text"],
   input[type="password"],
-  input[type="date"],
   input[type="datetime"],
   input[type="email"],
   input[type="number"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="time"],
-  input[type="url"],
   textarea,
   select {
     background: rgba(255,255,255,0.1);
+    
+     /* background-color:black; */
     border: none;
     font-size: 16px;
     height: auto;
     margin: 0;
     outline: 0;
     padding: 15px;
-    width: 100%;
+    width: 90%;
     background-color: #e8eeef;
-    color: #8a97a0;
+    /* background-color: black; */
+    /* color: #fff;
+     */
+     color: black;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 30px;
   }
-  
+
+
   input[type="radio"],
   input[type="checkbox"] {
     margin: 0 4px 8px 0;
@@ -113,7 +171,7 @@ form {
     color: #fff;
     height: 30px;
     width: 30px;
-    display: inline-block;
+    /* display: inline-block;   */
     font-size: 0.8em;
     margin-right: 4px;
     line-height: 30px;
@@ -131,6 +189,17 @@ form {
     
     
   }
+
+  @media screen and (max-width: 960px) {
+  
+    .content {
+      display: block;
+    }
+    
+    
+    
+  }
+  
   
 
   
