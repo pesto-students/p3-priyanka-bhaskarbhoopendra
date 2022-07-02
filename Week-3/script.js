@@ -1,33 +1,22 @@
-// Assigment 3.1 Memoize Function
-const memoize = (func) => {
-  const results = {};
-  return (...args) => {
-    const argsKey = JSON.stringify(args);
-    if (!results[argsKey]) {
-      results[argsKey] = func(...args);
-    }
-    return results[argsKey];
-  };
+let runner = {
+  name: "Runner",
+  run: function (speed) {
+    console.log(this.name + " runs at " + speed + " mph.");
+  },
 };
 
-function add(a, b) {
-  return a + b;
-}
+let flyer = {
+  name: "Flyer",
+  fly: function (speed) {
+    console.log(this.name + " flies at " + speed + " mph.");
+  },
+};
 
-const memoizeAdd = memoize(add); // memoizing function add with arguments
+// if we want flyer object to be able to run
+let run = runner.run.bind(flyer, 20);
 
-console.time("First call");
-console.log(memoizeAdd(5, 5));
-console.timeEnd("First call");
+// if we want runner obejct to be able to fly
+let fly = flyer.fly.bind(runner, 30);
 
-console.time("Second call");
-console.log(memoizeAdd(5, 5));
-console.timeEnd("Second call");
-
-console.time("Third call");
-console.log(memoizeAdd(5, 4));
-console.timeEnd("Third call");
-
-console.time("fourth call");
-console.log(memoizeAdd(5, 4));
-console.timeEnd("fourth call");
+console.log(run()); // Flyer can run
+console.log(fly()); // Runner can fly
