@@ -1,67 +1,183 @@
-.container {
-  width: 400px;
-  height: 400px;
-  margin: auto;
-  position: relative;
-  cursor: pointer;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: white;
+}
+.heading {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 50px;
+  color: #ed4c67;
+}
+
+.imagefigure {
+  height: 425px;
+  width: 100%;
+  background-image: url('https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rightbetween h1 {
+  text-align: left;
+  color: #ed4c67;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.rightbottom h1 {
+  text-align: left;
+  color: #ed4c67;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.rightbottom p {
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+
+
+.left-container {
+  letter-spacing: 1px;
+}
+
+
+form {
+  margin: 10px auto;
+  padding: 10px 20px;
+  width: 500px;
+  background-color: #b53471;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
   text-align: center;
 }
-h1 {
-  padding-top: 200px;
+
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='email'],
+input[type='number'],
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 90%;
+  background-color: #e8eeef;
+  color: black;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
 }
-.red {
-  background: red;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 1s ease-out;
+
+input[type='radio'],
+input[type='checkbox'] {
+  margin: 0 4px 8px 0;
 }
-.yellow {
-  background: yellow;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transition: 1s ease-out;
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
 }
-.blue {
-  background: blue;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transition: 1s ease-out;
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #fff;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  margin-bottom: 10px;
 }
-.green {
-  background: green;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transition: 1s ease-out;
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
 }
-.container:hover .yellow {
-  position: absolute;
-  right: -50%;
-  transform: rotate(-90deg);
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
 }
-.container:hover .red {
-  position: absolute;
-  left: -50%;
-  transform: rotate(90deg);
+
+label {
+  display: block;
+  margin-bottom: 8px;
 }
-.container:hover .blue {
-  position: absolute;
-  left: -50%;
-  transform: rotate(-90deg);
+
+label.light {
+  font-weight: 300;
+  display: inline;
 }
-.container:hover .green {
-  position: absolute;
-  right: -50%;
-  transform: rotate(90deg);
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
 }
+
+
+@media screen and (max-width: 720px) {
+  .content {
+    display: block;
+  }
+}
+.container {
+  padding: 15px;
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media only screen and (max-width: 720px) {
+  .content {
+    display: block;
+  }
+}
+@media only screen and (max-width: 584px) {
+  form {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 465px) {
+  form {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 435px) {
+  form {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 367px) {
+  form {
+    width: 250px;
+  }
+}
+
