@@ -9,9 +9,12 @@ class MyPromise {
   #catchCbs = [];
   #state = STATE.PENDING;
   #value;
+  #onSuccessBind = this.#onSucess.bind(this);
+  #OnFailBind = this.#onFail.bind(this);
+
   constructor(cb) {
     try {
-      cb(this.#onSucess, this.#onFail);
+      cb(this.#onSuccessBind, this.#OnFailBind);
     } catch (error) {
       // any time promise fails it rejects with error
       this.onFail(error);
@@ -35,20 +38,68 @@ class MyPromise {
   }
 
   #onSucess(value) {
-    if (this.#state !== STATE.PENDING) return;
-    this.#value = value;
-    this.#state = STATE.FULLFILLED;
-    this.#runCallbacks();
-  }
-  #onFail(value) {
-    if (this.#state !== STATE.PENDING) return;
-    this.#value = value;
-    this.#state = STATE.REJECTED;
-    this.#runCallbacks();
+    queueMicrotask(() => {
+      if (this.#state !== STATE.PENDING) return;
+
+      if (value instanceof MyPromise) {
+        value.then(this.#onSuccessBind, this.#onFailBind);
+        return;
+      }
+
+      this.#value = value;
+      this.#state = STATE.FULFILLED;
+      this.#runCallbacks();
+    });
   }
 
-  then(cb) {
-    this.#thenCbs.push(cb);
+  #onFail(value) {
+    queueMicrotask(() => {
+      if (this.#state !== STATE.PENDING) return;
+      if (value instanceof MyPromise) {
+        value.then(this.#onSuccessBind, this.#onFailBind);
+        return;
+      }
+      if (this.#catchCbs.length === 0) {
+        throw new UncaughtPromiseError(value);
+      }
+      this.#value = value;
+      this.#state = STATE.REJECTED;
+      this.#runCallbacks();
+    });
+  }
+
+  then(thenCb, catchCb) {
+    return new MyPromise((resolve, reject) => {
+      this.#thenCbs.push((result) => {
+        if (thenCb == null) {
+          resolve(result);
+          return;
+        }
+        try {
+          resolve(thenCb(result));
+        } catch (error) {
+          reject(error);
+        }
+      });
+
+      this.#catchCbs.push((result) => {
+        if (catchCb == null) {
+          reject(result);
+          return;
+        }
+        try {
+          resolve(catchcb(result));
+        } catch (error) {
+          reject(error);
+        }
+      });
+
+      this.#runCallbacks();
+    });
+  }
+
+  catch(cb) {
+    this.then(undefined, cb);
   }
 }
 
