@@ -1,20 +1,11 @@
-function isVowel(char) {
-  return "aeiou".includes(char);
+function checkIfArrayIsUnique(myArray) {
+  return myArray.length === new Set(myArray).size;
 }
 
-function vowelCount(str) {
-  const vowelMap = new Map();
-  for (let char of str) {
-    let lowerCaseChar = char.toLowerCase();
-    if (isVowel(lowerCaseChar)) {
-      if (vowelMap.has(lowerCaseChar)) {
-        vowelMap.set(lowerCaseChar, vowelMap.get(lowerCaseChar) + 1);
-      } else {
-        vowelMap.set(lowerCaseChar, 1);
-      }
-    }
-  }
-  return vowelMap;
-}
+let uniqueArray = [1, 2, 3, 4, 5];
+console.log(`${uniqueArray} is unique : ${checkIfArrayIsUnique(uniqueArray)}`);
 
-console.log(vowelCount("bhoopendra"));
+let nonUniqueArray = [1, 1, 2, 3, 4, 5];
+console.log(
+  `${nonUniqueArray} is unique : ${checkIfArrayIsUnique(nonUniqueArray)}`
+);
